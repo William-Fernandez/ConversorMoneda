@@ -24,6 +24,8 @@ Esta es una aplicación de consola simple y directa que te permite convertir div
 Solo necesitas ingresar los códigos de tres letras de las monedas (por ejemplo, USD, EUR, COP) y la cantidad que deseas convertir.
 ¡Obtendrás el resultado al instante! Además, incluye una guía rápida para ayudarte a encontrar los códigos de las monedas.
 
+Ahora también puedes consultar un historial de conversiones realizadas, incluyendo la fecha y hora exacta en que se hicieron.
+
 ## ⚙️ Estado del proyecto
 
 Actualmente, este proyecto está **en desarrollo activo**. Se están implementando nuevas funciones y mejorando la experiencia del usuario.
@@ -38,7 +40,8 @@ Aunque esta es una aplicación de consola, aquí te mostramos cómo funciona:
     --- Conversor de Moneda ---
     1. Guía de Códigos de Moneda
     2. Iniciar Conversión
-    3. Salir
+    3. Ver Historial de Conversiones
+    4. Salir
     ```
 
 2.  **Para ver la guía de códigos de moneda:** Selecciona la opción `1`. Se mostrará una lista de códigos comunes para ayudarte.
@@ -82,9 +85,18 @@ Aunque esta es una aplicación de consola, aquí te mostramos cómo funciona:
     10 USD son 8.80 EUR
     ```
 
-4.  **Para salir:** Selecciona la opción `3`.
+    Esta conversión se guardará automáticamente en el historial, incluyendo la fecha y hora.
 
-Después de cada conversión, la aplicación te mostrará el menú nuevamente para que puedas realizar otra conversión o consultar la guía.
+4.  **Para ver el historial de conversiones:** Selecciona la opción `3`. Verás una lista con todas las conversiones realizadas, incluyendo la tasa usada, el monto convertido y la fecha/hora en que se hicieron.
+
+    ```
+    --- Historial de Conversiones ---
+    [2025-05-03T14:25:17.123] 10.0 USD → 8.80 EUR (Tasa: 0.88)
+    ```
+
+5.  **Para salir:** Selecciona la opción `4`.
+
+Después de cada conversión o consulta, la aplicación te mostrará el menú nuevamente para que puedas seguir utilizando el programa.
 
 ## 🚀 ¿Cómo usarlo? (Acceso)
 
@@ -113,13 +125,15 @@ Para ejecutar esta aplicación en tu computadora, necesitas tener Java JDK insta
 Esta aplicación se ha desarrollado utilizando las siguientes tecnologías:
 
 * **Java JDK:** El kit de desarrollo de Java para escribir y ejecutar la aplicación.
-    [![Java JDK](https://img.shields.io/badge/Java_JDK-8+-orange.svg?style=flat-square)](https://www.oracle.com/java/technologies/javase-downloads.html)
+  [![Java JDK](https://img.shields.io/badge/Java_JDK-8+-orange.svg?style=flat-square)](https://www.oracle.com/java/technologies/javase-downloads.html)
 * **Gson Library:** Una biblioteca Java de Google para convertir objetos Java en su representación JSON y viceversa. Se utiliza para analizar la respuesta de la API.
-    [![Gson Library](https://img.shields.io/badge/Gson-2.8.9+-green.svg?style=flat-square)](https://github.com/google/gson)
+  [![Gson Library](https://img.shields.io/badge/Gson-2.8.9+-green.svg?style=flat-square)](https://github.com/google/gson)
 * **ExchangeRate-API:** La API externa utilizada para obtener los tipos de cambio actualizados.
-    [![API](https://img.shields.io/badge/API-ExchangeRate--API-yellow.svg?style=flat-square)](https://www.exchangerate-api.com/)
+  [![API](https://img.shields.io/badge/API-ExchangeRate--API-yellow.svg?style=flat-square)](https://www.exchangerate-api.com/)
 * **IntelliJ IDEA:** El entorno de desarrollo integrado (IDE) utilizado para escribir y depurar el código.
-    [![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-Community-blue.svg?style=flat-square)](https://www.jetbrains.com/idea/community/)
+  [![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-Community-blue.svg?style=flat-square)](https://www.jetbrains.com/idea/community/)
+* **java.time (LocalDateTime):** Utilizado para registrar la fecha y hora exacta de cada conversión realizada en el historial.
+* **Sistema de historial de conversiones:** Implementado mediante una lista de objetos que almacena cada conversión realizada con detalles completos.
 
 ## 🧑‍💻 ¡Manos a la obra! (Desarrolladores)
 

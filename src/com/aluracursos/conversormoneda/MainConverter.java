@@ -8,11 +8,16 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import com.aluracursos.conversormoneda.model.ConversionRecord;
+import java.time.LocalDateTime;
 
 
 public class MainConverter {
     private static final String API_KEY = "e05624c2ff479b4fb79bc4b6";
     private static final String BASE_URL = "https://v6.exchangerate-api.com/v6/";
+    private static final List<ConversionRecord> historial = new ArrayList<>();
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
@@ -33,6 +38,9 @@ public class MainConverter {
                         realizarConversion(scanner);
                         break;
                     case 3:
+                        mostrarHistorial();
+                        break;
+                    case 4:
                         System.out.println("¡Gracias por usar el Conversor de Moneda!");
                         break;
                     default:
@@ -53,7 +61,9 @@ public class MainConverter {
         System.out.println("\n--- Bienvenido/a al Conversor de Moneda ---");
         System.out.println("1. Guía de Códigos de Moneda (ISO)");
         System.out.println("2. Iniciar Conversión");
-        System.out.println("3. Salir");
+        System.out.println("3. Ver Historial de Conversiones");
+        System.out.println("4. Salir");
+
     }
 
     private static void mostrarGuiaMonedas() {
@@ -70,6 +80,18 @@ public class MainConverter {
         System.out.println("Puedes buscar el código de cualquier otra moneda en línea.");
         System.out.println("--- Fin de la Guía ---");
     }
+
+    private static void mostrarHistorial() {
+        System.out.println("\n--- Historial de Conversiones ---");
+        if (historial.isEmpty()) {
+            System.out.println("No hay conversiones registradas todavía.");
+        } else {
+            for (ConversionRecord record : historial) {
+                System.out.println(record);
+            }
+        }
+    }
+
 
     private static void realizarConversion(Scanner scanner) throws IOException, InterruptedException {
         System.out.print("Ingrese la moneda base (ej: USD): ");
@@ -108,7 +130,9 @@ public class MainConverter {
                     try {
                         double amount = scanner.nextDouble();
                         double convertedAmount = amount * exchangeRate;
-                        System.out.println(amount + " " + exchangeRateResponse.getBaseCode() + " son " + String.format("%.2f", convertedAmount) + " " + targetCurrency);
+                        System.out.println(amount + " " + baseCurrency + " son " + String.format("%.2f", convertedAmount) + " " + targetCurrency);
+                        //Agregar al Historial
+                        historial.add(new ConversionRecord(baseCurrency, targetCurrency, amount, convertedAmount, exchangeRate, LocalDateTime.now()));
                     } catch (java.util.InputMismatchException e) {
                         System.err.println("Cantidad inválida. Por favor, ingrese un número.");
                         scanner.next(); // Limpiar el buffer del scanner.
