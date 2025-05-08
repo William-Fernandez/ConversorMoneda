@@ -21,70 +21,70 @@ public class MainConverter {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        int option;
 
         do {
-            mostrarMenu();
-            System.out.print("Seleccione una opción: ");
+            displayMenu();
+            System.out.print("Select an option: ");
             try {
-                opcion = scanner.nextInt();
-                scanner.nextLine(); // Consumir la nueva línea después de leer el entero.
+                option = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character after reading the integer.
 
-                switch (opcion) {
+                switch (option) {
                     case 1:
-                        mostrarGuiaMonedas();
+                        displayCurrencyGuide();
                         break;
                     case 2:
-                        realizarConversion(scanner);
+                        performConversion(scanner);
                         break;
                     case 3:
-                        mostrarHistorial();
+                        displayHistory();
                         break;
                     case 4:
-                        System.out.println("¡Gracias por usar el Conversor de Moneda!");
+                        System.out.println("Thank you for using the Currency Converter!");
                         break;
                     default:
-                        System.out.println("Opción inválida. Por favor, seleccione una opción del menú.");
+                        System.out.println("Invalid option. Please select an option from the menu.");
                 }
             } catch (java.util.InputMismatchException e) {
-                System.out.println("Entrada inválida. Por favor, ingrese un número del menú.");
-                scanner.next(); // Limpiar el buffer del scanner.
-                opcion = -1; // Para que el bucle continúe.
+                System.out.println("Invalid input. Please enter a number from the menu.");
+                scanner.next(); // Clear the scanner buffer.
+                option = -1; // To ensure the loop continues.
             }
-            System.out.println(); // Salto de linea.
-        } while (opcion != 3);
+            System.out.println(); // Newline.
+        } while (option != 3);
 
         scanner.close();
     }
 
-    private static void mostrarMenu() {
-        System.out.println("\n--- Bienvenido/a al Conversor de Moneda ---");
-        System.out.println("1. Guía de Códigos de Moneda (ISO)");
-        System.out.println("2. Iniciar Conversión");
-        System.out.println("3. Ver Historial de Conversiones");
-        System.out.println("4. Salir");
+    private static void displayMenu() {
+        System.out.println("\n--- Welcome to the Currency Converter ---");
+        System.out.println("1. Currency Code Guide (ISO)");
+        System.out.println("2. Start Conversion");
+        System.out.println("3. View Conversion History");
+        System.out.println("4. Exit");
 
     }
 
-    private static void mostrarGuiaMonedas() {
-        System.out.println("\n--- Guía de Códigos de Moneda (ISO)---");
-        System.out.println("Aquí tienes algunos ejemplos comunes:\n");
+    private static void displayCurrencyGuide() {
+        System.out.println("\n--- Currency Code Guide (ISO) ---");
+        System.out.println("Here are some common examples:\n");
         System.out.println("Colombia: COP");
-        System.out.println("Estados Unidos: USD");
-        System.out.println("Europa: EUR");
-        System.out.println("Reino Unido: GBP");
-        System.out.println("Japón: JPY");
-        System.out.println("Canadá: CAD");
+        System.out.println("United States: USD");
+        System.out.println("Europe: EUR");
+        System.out.println("United Kingdom: GBP");
+        System.out.println("Japan: JPY");
+        System.out.println("Canada: CAD");
         System.out.println("Australia: AUD");
-        System.out.println("Suiza: CHF\n");
-        System.out.println("Puedes buscar el código de cualquier otra moneda en línea.");
-        System.out.println("--- Fin de la Guía ---");
+        System.out.println("Switzerland: CHF\n");
+        System.out.println("You can search for the code of any other currency online.");
+        System.out.println("--- End of Guide ---");
     }
 
-    private static void mostrarHistorial() {
-        System.out.println("\n--- Historial de Conversiones ---");
+    private static void displayHistory() {
+        System.out.println("\n--- Conversion History ---");
         if (historial.isEmpty()) {
-            System.out.println("No hay conversiones registradas todavía.");
+            System.out.println("There are no recorded conversions yet.");
         } else {
             for (ConversionRecord record : historial) {
                 System.out.println(record);
@@ -93,11 +93,11 @@ public class MainConverter {
     }
 
 
-    private static void realizarConversion(Scanner scanner) throws IOException, InterruptedException {
-        System.out.print("Ingrese la moneda base (ej: USD): ");
+    private static void performConversion(Scanner scanner) throws IOException, InterruptedException {
+        System.out.print("Enter the base currency (e.g., USD): ");
         String baseCurrency = scanner.nextLine().toUpperCase();
 
-        System.out.print("Ingrese la moneda a convertir (ej: EUR): ");
+        System.out.print("Enter the currency to convert to (e.g., EUR): ");
         String targetCurrency = scanner.nextLine().toUpperCase();
 
         String apiUrl = BASE_URL + API_KEY + "/latest/" + baseCurrency;
@@ -118,34 +118,34 @@ public class MainConverter {
             ExchangeRateResponse exchangeRateResponse = gson.fromJson(jsonResponse, ExchangeRateResponse.class);
 
             if ("success".equals(exchangeRateResponse.getResult())) {
-                System.out.println("\n--- Resultado de la Conversión ---");
-                System.out.println("Moneda Base: " + exchangeRateResponse.getBaseCode());
+                System.out.println("\n--- Conversion Result ---");
+                System.out.println("Base Currency: " + exchangeRateResponse.getBaseCode());
 
                 Double exchangeRate = exchangeRateResponse.getConversionRates().get(targetCurrency);
 
                 if (exchangeRate != null) {
-                    System.out.println("1 " + exchangeRateResponse.getBaseCode() + " equivale a " + exchangeRate + " " + targetCurrency);
+                    System.out.println("1 " + exchangeRateResponse.getBaseCode() + " is equivalent to " + exchangeRate + " " + targetCurrency);
 
-                    System.out.print("Ingrese la cantidad de " + exchangeRateResponse.getBaseCode() + " a convertir: ");
+                    System.out.print("Enter the amount of " + exchangeRateResponse.getBaseCode() + " to convert: ");
                     try {
                         double amount = scanner.nextDouble();
                         double convertedAmount = amount * exchangeRate;
-                        System.out.println(amount + " " + baseCurrency + " son " + String.format("%.2f", convertedAmount) + " " + targetCurrency);
-                        //Agregar al Historial
+                        System.out.println(amount + " " + baseCurrency + " is " + String.format("%.2f", convertedAmount) + " " + targetCurrency);
+                        // Add to History
                         historial.add(new ConversionRecord(baseCurrency, targetCurrency, amount, convertedAmount, exchangeRate, LocalDateTime.now()));
                     } catch (java.util.InputMismatchException e) {
-                        System.err.println("Cantidad inválida. Por favor, ingrese un número.");
-                        scanner.next(); // Limpiar el buffer del scanner.
+                        System.err.println("Invalid amount. Please enter a number.");
+                        scanner.next(); // Clear the scanner buffer.
                     }
                 } else {
-                    System.err.println("La moneda '" + targetCurrency + "' no fue encontrada en las tasas para " + exchangeRateResponse.getBaseCode() + ".");
+                    System.err.println("The currency '" + targetCurrency + "' was not found in the rates for " + exchangeRateResponse.getBaseCode() + ".");
                 }
             } else {
-                System.err.println("Error al obtener las tasas de cambio: " + exchangeRateResponse.getResult());
+                System.err.println("Error fetching exchange rates: " + exchangeRateResponse.getResult());
             }
 
         } else {
-            System.err.println("Error en la petición HTTP. Código de estado: " + response.statusCode());
+            System.err.println("Error in the HTTP request. Status code: " + response.statusCode());
         }
     }
 }

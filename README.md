@@ -1,156 +1,156 @@
-# 💰 ¡Conversor de Moneda Simple y Rápido! 🚀
+# 💰 Simple and Speedy Currency Converter! 🚀
 
-Una herramienta de consola que permite convertir entre distintas divisas de forma sencilla y obtener los tipos de cambio actualizados al instante.
+A console tool that allows you to convert between different currencies easily and get the latest exchange rates instantly.
 
 [![Java JDK](https://img.shields.io/badge/Java_JDK-8+-orange.svg?style=flat-square)](https://www.oracle.com/java/technologies/javase-downloads.html)
 [![Gson Library](https://img.shields.io/badge/Gson-2.8.9+-green.svg?style=flat-square)](https://github.com/google/gson)
 [![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-Community-blue.svg?style=flat-square)](https://www.jetbrains.com/idea/community/)
 [![API](https://img.shields.io/badge/API-ExchangeRate--API-yellow.svg?style=flat-square)](https://www.exchangerate-api.com/)
-[![Estado](https://img.shields.io/badge/Estado-En%20Desarrollo-yellowgreen.svg?style=flat-square)](https://github.com/William-Fernandez/ConversorMoneda)
+[![Status](https://img.shields.io/badge/Status-In%20Development-yellowgreen.svg?style=flat-square)](https://github.com/William-Fernandez/ConversorMoneda)
 
-## 🧭 Índice
+## 🧭 Contents
 
-1.  [¿Qué hace esta aplicación?](#¿qué-hace-esta-aplicación)
-2.  [¡Pruébalo! (Demostración)](#¡pruébalo-demostración)
-3.  [¿Cómo usarlo? (Acceso)](#¿cómo-usarlo-acceso)
-4.  [Construido con... (Tecnologías)](#construido-con-tecnologías)
-5.  [¡Manos a la obra! (Desarrolladores)](#¡manos-a-la-obra-desarrolladores)
-6.  [¿Quién más ayudó? (Contribuyentes)](#¿quién-más-ayudó-contribuyentes)
-7.  [¡Libre para todos! (Licencia)](#¡libre-para-todos-licencia)
+1.  [What does this application do?](#what-does-this-application-do)
+2.  [Have a go! (Demonstration)](#have-a-go-demonstration)
+3.  [How to use it? (Access)](#how-to-use-it-access)
+4.  [Built with... (Technologies)](#built-with-technologies)
+5.  [Get stuck in! (Developers)](#get-stuck-in-developers)
+6.  [Who else helped? (Contributors)](#who-else-helped-contributors)
+7.  [Free for all! (License)](#free-for-all-license)
 
-## 💡 ¿Qué hace esta aplicación?
+## 💡 What does this application do?
 
-Esta es una aplicación de consola simple y directa que te permite convertir divisas de forma rápida y sencilla.
-Solo necesitas ingresar los códigos de tres letras de las monedas (por ejemplo, USD, EUR, COP) y la cantidad que deseas convertir.
-¡Obtendrás el resultado al instante! Además, incluye una guía rápida para ayudarte a encontrar los códigos de las monedas.
+This is a simple and straightforward console application that allows you to convert currencies quickly and easily.
+You just need to enter the three-letter codes for the currencies (for example, USD, EUR, COP) and the amount you want to convert.
+You'll get the result instantly! Plus, it includes a quick guide to help you find the currency codes.
 
-Ahora también puedes consultar un historial de conversiones realizadas, incluyendo la fecha y hora exacta en que se hicieron.
+Now you can also check a history of conversions made, including the exact date and time they occurred.
 
-## ⚙️ Estado del proyecto
+## ⚙️ Project Status
 
-Actualmente, este proyecto está **en desarrollo activo**. Se están implementando nuevas funciones y mejorando la experiencia del usuario.
-¡Mantente atento a las actualizaciones!
+Currently, this project is **in active development**. New features are being implemented and the user experience is being improved.
+Stay tuned for updates!
 
-## ✨ ¡Pruébalo! (Demostración)
+## ✨ Have a go! (Demonstration)
 
-Aunque esta es una aplicación de consola, aquí te mostramos cómo funciona:
+Although this is a console application, here's how it works:
 
-1.  Al ejecutar la aplicación, verás un menú con las siguientes opciones:
+1.  When you run the application, you'll see a menu with the following options:
     ```
-    --- Conversor de Moneda ---
-    1. Guía de Códigos de Moneda
-    2. Iniciar Conversión
-    3. Ver Historial de Conversiones
-    4. Salir
+    --- Currency Converter ---
+    1. Currency Code Guide
+    2. Start Conversion
+    3. View Conversion History
+    4. Exit
     ```
 
-2.  **Para ver la guía de códigos de moneda:** Selecciona la opción `1`. Se mostrará una lista de códigos comunes para ayudarte.
+2.  **To see the currency code guide:** Select option `1`. A list of common codes will be displayed to help you.
 
     ```
-    --- Guía de Códigos de Moneda ---
-    Para realizar la conversión, necesitarás ingresar los códigos de tres letras que representan cada moneda. Aquí tienes algunos ejemplos comunes:
+    --- Currency Code Guide ---
+    To perform the conversion, you will need to enter the three-letter codes that represent each currency. Here are some common examples:
 
     Colombia: COP
-    Estados Unidos: USD
-    Europa: EUR
-    Reino Unido: GBP
-    Japón: JPY
-    Canadá: CAD
+    United States: USD
+    Europe: EUR
+    United Kingdom: GBP
+    Japan: JPY
+    Canada: CAD
     Australia: AUD
-    Suiza: CHF
+    Switzerland: CHF
 
-    Puedes buscar el código de cualquier otra moneda en línea si no la encuentras en esta lista.
-    --- Fin de la Guía ---
+    You can search for the code of any other currency online if you don't find it in this list.
+    --- End of Guide ---
     ```
 
-3.  **Para iniciar una conversión:** Selecciona la opción `2`. La aplicación te pedirá:
+3.  **To start a conversion:** Select option `2`. The application will ask you for:
     ```
-    Ingrese la moneda base (ej: USD):
+    Enter the base currency (e.g., USD):
     ```
-    Ingresa el código de la moneda desde la que quieres convertir. Luego, te pedirá:
+    Enter the code of the currency you want to convert from. Then, it will ask you for:
     ```
-    Ingrese la moneda a convertir (ej: EUR):
+    Enter the currency to convert to (e.g., EUR):
     ```
-    Ingresa el código de la moneda a la que quieres convertir. Finalmente, te preguntará:
+    Enter the code of the currency you want to convert to. Finally, it will ask:
     ```
-    Ingrese la cantidad de [Moneda Base] a convertir:
+    Enter the amount of [Base Currency] to convert:
     ```
-    Ingresa el número que deseas convertir. La aplicación te mostrará el resultado.
+    Enter the number you want to convert. The application will show you the result.
 
     ```
-    --- Resultado de la Conversión ---
-    Moneda Base: USD
-    1 USD equivale a 0.88 EUR
-    Ingrese la cantidad de USD a convertir: 10
-    10 USD son 8.80 EUR
+    --- Conversion Result ---
+    Base Currency: USD
+    1 USD is equivalent to 0.88 EUR
+    Enter the amount of USD to convert: 10
+    10 USD is 8.80 EUR
     ```
 
-    Esta conversión se guardará automáticamente en el historial, incluyendo la fecha y hora.
+    This conversion will be automatically saved in the history, including the date and time.
 
-4.  **Para ver el historial de conversiones:** Selecciona la opción `3`. Verás una lista con todas las conversiones realizadas, incluyendo la tasa usada, el monto convertido y la fecha/hora en que se hicieron.
+4.  **To view the conversion history:** Select option `3`. You will see a list with all the conversions made, including the rate used, the amount converted, and the date/time they were made.
 
     ```
-    --- Historial de Conversiones ---
-    [2025-05-03T14:25:17.123] 10.0 USD → 8.80 EUR (Tasa: 0.88)
+    --- Conversion History ---
+    [2025-05-03T14:25:17.123] 10.0 USD → 8.80 EUR (Rate: 0.88)
     ```
 
-5.  **Para salir:** Selecciona la opción `4`.
+5.  **To exit:** Select option `4`.
 
-Después de cada conversión o consulta, la aplicación te mostrará el menú nuevamente para que puedas seguir utilizando el programa.
+After each conversion or query, the application will show you the menu again so you can continue using the program.
 
-## 🚀 ¿Cómo usarlo? (Acceso)
+## 🚀 How to use it? (Access)
 
-Para ejecutar esta aplicación en tu computadora, necesitas tener Java JDK instalado. Sigue estos pasos:
+To run this application on your computer, you need to have Java JDK installed. Follow these steps:
 
-1.  **Clonar el Repositorio (si el código está en un repositorio):**
+1.  **Clone the Repository (if the code is in a repository):**
     ```bash
     git clone [https://github.com/William-Fernandez/ConversorMoneda.git](https://github.com/William-Fernandez/ConversorMoneda.git)
     cd ConversorMoneda
     ```
 
-2.  **Compilar el Código Java:** Abre una terminal o símbolo del sistema en la raíz del proyecto (`ConversorMoneda`) y compila los archivos Java:
+2.  **Compile the Java Code:** Open a terminal or command prompt in the project root (`ConversorMoneda`) and compile the Java files:
     ```bash
     javac com/aluracursos/conversormoneda/*.java com/aluracursos/conversormoneda/model/*.java
     ```
 
-3.  **Ejecutar la Aplicación:** Ejecuta la clase principal (`MainConverter`):
+3.  **Run the Application:** Execute the main class (`MainConverter`):
     ```bash
     java com.aluracursos.conversormoneda.MainConverter
     ```
 
-¡La aplicación se iniciará y podrás seguir las instrucciones en la consola!
+The application will start, and you can follow the instructions in the console!
 
-## 🛠️ Construido con... (Tecnologías)
+## 🛠️ Built with... (Technologies)
 
-Esta aplicación se ha desarrollado utilizando las siguientes tecnologías:
+This application has been developed using the following technologies:
 
-* **Java JDK:** El kit de desarrollo de Java para escribir y ejecutar la aplicación.
+* **Java JDK:** The Java Development Kit used to write and run the application.
   [![Java JDK](https://img.shields.io/badge/Java_JDK-8+-orange.svg?style=flat-square)](https://www.oracle.com/java/technologies/javase-downloads.html)
-* **Gson Library:** Una biblioteca Java de Google para convertir objetos Java en su representación JSON y viceversa. Se utiliza para analizar la respuesta de la API.
+* **Gson Library:** A Java library by Google for converting Java objects into their JSON representation and vice versa. It is used to parse the API response.
   [![Gson Library](https://img.shields.io/badge/Gson-2.8.9+-green.svg?style=flat-square)](https://github.com/google/gson)
-* **ExchangeRate-API:** La API externa utilizada para obtener los tipos de cambio actualizados.
+* **ExchangeRate-API:** The external API used to obtain the latest exchange rates.
   [![API](https://img.shields.io/badge/API-ExchangeRate--API-yellow.svg?style=flat-square)](https://www.exchangerate-api.com/)
-* **IntelliJ IDEA:** El entorno de desarrollo integrado (IDE) utilizado para escribir y depurar el código.
+* **IntelliJ IDEA:** The Integrated Development Environment (IDE) used to write and debug the code.
   [![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-Community-blue.svg?style=flat-square)](https://www.jetbrains.com/idea/community/)
-* **java.time (LocalDateTime):** Utilizado para registrar la fecha y hora exacta de cada conversión realizada en el historial.
-* **Sistema de historial de conversiones:** Implementado mediante una lista de objetos que almacena cada conversión realizada con detalles completos.
+* **java.time (LocalDateTime):** Used to record the exact date and time of each conversion performed in the history.
+* **Conversion history system:** Implemented using a list of objects that stores each conversion performed with complete details.
 
-## 🧑‍💻 ¡Manos a la obra! (Desarrolladores)
+## 🧑‍💻 Get stuck in! (Developers)
 
-Este proyecto ha sido desarrollado por:
+This project has been developed by:
 
 * William Fernandez ([William-Fernandez](https://github.com/William-Fernandez))
 
-¡Gracias por crear esta increíble aplicación!
+Thank you for creating this amazing application!
 
-## 🤝 ¿Quién más ayudó? (Contribuyentes)
+## 🤝 Who else helped? (Contributors)
 
-¡Por ahora, este proyecto es individual! Sin embargo, si alguien contribuye en el futuro, sus nombres aparecerán aquí con enlaces a sus perfiles.
-¡Las contribuciones son bienvenidas!
+For now, this project is an individual effort! However, if anyone contributes in the future, their names will appear here with links to their profiles.
+Contributions are welcome!
 
-## 📄 ¡Libre para todos! (Licencia)
+## 📄 Free for all! (License)
 
-Este proyecto está bajo la licencia **MIT**.
-Consulta el archivo `LICENSE` en la raíz del repositorio para obtener más detalles sobre los términos y condiciones de uso.
+This project is under the **MIT License**.
+See the `LICENSE` file at the root of the repository for more details about the terms and conditions of use.
 
-[![Licencia](https://img.shields.io/badge/Licencia-MIT-blue.svg?style=flat-square)](./LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](./LICENSE)

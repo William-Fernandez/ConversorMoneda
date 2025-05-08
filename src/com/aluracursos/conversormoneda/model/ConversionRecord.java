@@ -21,7 +21,7 @@ public class ConversionRecord {
 
     @Override
     public String toString() {
-        return "[" + timestamp + "] " + amount + " " + baseCurrency + " -> " + String.format("%.2f", convertedAmount) + " " + targetCurrency
-                + " (Tasa: " + rate + ")";
+        return "[" + timestamp + "] " + amount + " " + baseCurrency + " → " + String.format("%.2f", convertedAmount) + " " + targetCurrency
+                + " (Rate: " + rate + ")";
     }
 }
