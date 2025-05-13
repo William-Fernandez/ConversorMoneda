@@ -1,5 +1,6 @@
 package com.aluracursos.conversormoneda;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import com.google.gson.Gson;
 import com.aluracursos.conversormoneda.model.ExchangeRateResponse;
 import java.io.IOException;
@@ -15,8 +16,9 @@ import java.time.LocalDateTime;
 
 
 public class MainConverter {
-    private static final String API_KEY = "e05624c2ff479b4fb79bc4b6";
-    private static final String BASE_URL = "https://v6.exchangerate-api.com/v6/";
+    private static final Dotenv dotenv = Dotenv.load();
+    private static final String API_KEY = dotenv.get("API_KEY");
+    private static final String BASE_URL = dotenv.get("BASE_URL");
     private static final List<ConversionRecord> historial = new ArrayList<>();
 
     public static void main(String[] args) throws IOException, InterruptedException {
